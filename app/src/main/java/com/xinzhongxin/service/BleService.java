@@ -38,7 +38,7 @@ public class BleService extends Service {
 	private static final int STATE_CONNECTING = 1;
 	private static final int STATE_CONNECTED = 2;
 
-	// ÎªÁË´«ËÍ×´Ì¬ÏìÓ¦×´Ì¬£¬ÒªÓĞ¼¸ÌõACTION
+	// ä¸ºäº†ä¼ é€çŠ¶æ€å“åº”çŠ¶æ€ï¼Œè¦æœ‰å‡ æ¡ACTION
 	public final static String ACTION_GATT_CONNECTED = "com.example.bluetooth.le.ACTION_GATT_CONNECTED";
 	public final static String ACTION_GATT_DISCONNECTED = "com.example.bluetooth.le.ACTION_GATT_DISCONNECTED";
 	public final static String ACTION_GATT_SERVICES_DISCOVERED = "com.example.bluetooth.le.ACTION_GATT_SERVICES_DISCOVERED";
@@ -50,7 +50,7 @@ public class BleService extends Service {
 	public final static String EXTRA_DATA_LENGTH = "com.example.bluetooth.le.EXTRA_DATA_LENGTH";
 	public final static String ACTION_GATT_RSSI = "com.example.bluetooth.le.ACTION_GATT_RSSI";
 	public final static String EXTRA_DATA_RSSI = "com.example.bluetooth.le.ACTION_GATT_RSSI";
-	// ¼¯ÖĞ³£ÓÃµÄ
+	// é›†ä¸­å¸¸ç”¨çš„
 	public static final UUID RX_ALART_UUID = UUID
 			.fromString("00001802-0000-1000-8000-00805f9b34fb");
 	public static final UUID RX_SERVICE_UUID = UUID

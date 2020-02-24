@@ -17,8 +17,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +24,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.xinzhongxin.adapter.BleSevicesListAdapter;
 import com.xinzhongxin.service.BleService;
@@ -85,13 +85,13 @@ public class DeviceConnect extends Activity {
 				runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
-						Toast.makeText(DeviceConnect.this, "Éè±¸Á¬½Ó³É¹¦£¡",
+						Toast.makeText(DeviceConnect.this, "è®¾å¤‡è¿æ¥æˆåŠŸï¼",
 								Toast.LENGTH_LONG).show();
 					}
 				});
 			}
 			if (BleService.ACTION_GATT_DISCONNECTED.equals(action)) {
-				Toast.makeText(DeviceConnect.this, "Éè±¸¶Ï¿ª£¡", Toast.LENGTH_LONG)
+				Toast.makeText(DeviceConnect.this, "è®¾å¤‡æ–­å¼€ï¼", Toast.LENGTH_LONG)
 						.show();
 				if (sharedPreferences.getBoolean("AutoConnect", true)) {
 					bleService.connect(bleAddress);
@@ -133,7 +133,7 @@ public class DeviceConnect extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		getActionBar().setTitle("·şÎñÁĞ±í");
+		getActionBar().setTitle("æœåŠ¡åˆ—è¡¨");
 		sharedPreferences = getPreferences(0);
 		editor = sharedPreferences.edit();
 		init();
@@ -156,7 +156,7 @@ public class DeviceConnect extends Activity {
 		serviceList.setEmptyView(findViewById(R.id.pb_empty));
 		servicesListAdapter = new BleSevicesListAdapter(this);
 		swagLayout = (SwipeRefreshLayout) findViewById(R.id.swagLayout);
-		swagLayout.setOnRefreshListener(new OnRefreshListener() {
+		swagLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 
 			@SuppressLint("NewApi")
 			@Override

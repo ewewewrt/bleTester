@@ -274,11 +274,11 @@ public class Utils {
 	}
 
 	/**
-	 * Ê®Áù½øÖÆ×ª»»×Ö·û´®
+	 * åå…­è¿›åˆ¶è½¬æ¢å­—ç¬¦ä¸²
 	 * 
-	 * @param String
+	 * @param hexStr
 	 * 
-	 * @return String ¶ÔÓ¦µÄ×Ö·û´®
+	 * @return String å¯¹åº”çš„å­—ç¬¦ä¸²
 	 */
 	public static String hexStr2Str(String hexStr) {
 		String str = "0123456789ABCDEF";

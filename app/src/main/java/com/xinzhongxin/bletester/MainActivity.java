@@ -15,8 +15,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +23,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
+
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.xinzhongxin.adapter.BleDeviceListAdapter;
 import com.xinzhongxin.utils.Utils;
@@ -69,7 +69,7 @@ public class MainActivity extends Activity {
 		listView.setEmptyView(findViewById(R.id.pb_empty));
 		swagLayout = (SwipeRefreshLayout) findViewById(R.id.swagLayout);
 		swagLayout.setVisibility(View.VISIBLE);
-		swagLayout.setOnRefreshListener(new OnRefreshListener() {
+		swagLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 
 			@SuppressWarnings("deprecation")
 			@SuppressLint("NewApi")
@@ -152,7 +152,7 @@ public class MainActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
-		menu.getItem(0).setTitle("¹²" + mBleDeviceListAdapter.getCount() + "¸ö");
+		menu.getItem(0).setTitle("å…±" + mBleDeviceListAdapter.getCount() + "ä¸ª");
 		return true;
 	}
 
@@ -168,11 +168,11 @@ public class MainActivity extends Activity {
 			if (sharedPreferences.getBoolean("AutoConnect", true)) {
 				editor.putBoolean("AutoConnect", false);
 				editor.commit();
-				Toast.makeText(this, "È¡Ïû×Ô¶¯Á¬½Ó", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "å–æ¶ˆè‡ªåŠ¨è¿æ¥", Toast.LENGTH_SHORT).show();
 			} else {
 				editor.putBoolean("AutoConnect", true);
 				editor.commit();
-				Toast.makeText(this, "ÒÑÉèÖÃÎª¶Ï¿ªºó×Ô¶¯Á¬½Ó", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "å·²è®¾ç½®ä¸ºæ–­å¼€åè‡ªåŠ¨è¿æ¥", Toast.LENGTH_SHORT).show();
 			}
 			break;
 		case R.id.menu_about:
@@ -195,7 +195,7 @@ public class MainActivity extends Activity {
 	private void exitBy2Click() {
 		if (!isExit) {
 			isExit = true;
-			Toast.makeText(this, "ÔÙ°´Ò»´ÎÍË³ö", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "å†æŒ‰ä¸€æ¬¡é€€å‡º", Toast.LENGTH_SHORT).show();
 			new Timer().schedule(new TimerTask() {
 				public void run() {
 					isExit = false;

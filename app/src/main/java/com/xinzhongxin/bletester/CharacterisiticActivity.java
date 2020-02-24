@@ -86,7 +86,7 @@ public class CharacterisiticActivity extends Activity {
 				CharacterisiticActivity.this.invalidateOptionsMenu();
 			}
 			if (BleService.ACTION_GATT_DISCONNECTED.equals(action)) {
-				Toast.makeText(CharacterisiticActivity.this, "Éè±¸Á¬½Ó¶Ï¿ª",
+				Toast.makeText(CharacterisiticActivity.this, "è®¾å¤‡è¿žæŽ¥æ–­å¼€",
 						Toast.LENGTH_SHORT).show();
 				bleService.connect(DeviceConnect.bleAddress);
 			}
@@ -108,7 +108,7 @@ public class CharacterisiticActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_chars);
-		getActionBar().setTitle("ÌØÐÔÁÐ±í");
+		getActionBar().setTitle("ç‰¹æ€§åˆ—è¡¨");
 		uuid = (UUID) getIntent().getExtras().get("serviceUUID");
 		init();
 		bindService(new Intent(this, BleService.class), conn, BIND_AUTO_CREATE);

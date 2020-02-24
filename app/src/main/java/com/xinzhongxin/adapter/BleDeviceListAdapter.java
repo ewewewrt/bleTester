@@ -94,12 +94,12 @@ public class BleDeviceListAdapter extends BaseAdapter {
 			viewholder.devicename.setText(name);
 		else
 			viewholder.devicename.setText("Unknow Device");
-		viewholder.deviceAddress.setText("µØÖ·£º "
+		viewholder.deviceAddress.setText("åœ°å€ï¼š "
 				+ mLeDevices.get(position).getAddress());
-		viewholder.deviceRSSI.setText("ĞÅºÅ£º " + RSSIs.get(position).toString());
-		viewholder.devicerecord.setText("¹ã²¥°ü£º " + "\n"
+		viewholder.deviceRSSI.setText("ä¿¡å·ï¼š " + RSSIs.get(position).toString());
+		viewholder.devicerecord.setText("å¹¿æ’­åŒ…ï¼š " + "\n"
 				+ scanRecords.get(position));
-		viewholder.devicerecord_name.setText("¹ã²¥°üÖĞµÄÃû³Æ:"
+		viewholder.devicerecord_name.setText("å¹¿æ’­åŒ…ä¸­çš„åç§°:"
 				+ Utils.ParseScanRecord(scanRecords.get(position)));
 		return view;
 	}

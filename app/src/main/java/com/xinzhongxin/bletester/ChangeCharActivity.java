@@ -145,9 +145,9 @@ public class ChangeCharActivity extends Activity implements OnClickListener {
 					@Override
 					public void run() {
 						// TODO Auto-generated methdo stub
-						charString.setText("×Ö·û´®: " + stringValue);
-						charHex.setText("Ê®Áù½øÖÆ: " + hexValue);
-						time.setText("¶ÁÈ¡Ê±¼ä: " + readTime);
+						charString.setText("å­—ç¬¦ä¸²: " + stringValue);
+						charHex.setText("åå…­è¿›åˆ¶: " + hexValue);
+						time.setText("è¯»å–æ—¶é—´: " + readTime);
 						descriptor1.setText(des1String);
 						descriptor2.setText(des2String);
 					}
@@ -180,12 +180,12 @@ public class ChangeCharActivity extends Activity implements OnClickListener {
 					public void run() {
 						// TODO Auto-generated method stub
 						notify_resualt.setText(text_string);
-						resultcount.setText("×Ö½ÚÊı£º " + resultLength);
+						resultcount.setText("å­—èŠ‚æ•°ï¼š " + resultLength);
 					}
 				});
 			}
 			if (BleService.ACTION_GATT_DISCONNECTED.equals(action)) {
-				Toast.makeText(ChangeCharActivity.this, "Éè±¸Á¬½Ó¶Ï¿ª",
+				Toast.makeText(ChangeCharActivity.this, "è®¾å¤‡è¿æ¥æ–­å¼€",
 						Toast.LENGTH_SHORT).show();
 				if (sharedPreferences.getBoolean("AutoConnect", true)) {
 					bleService.connect(DeviceConnect.bleAddress);
@@ -212,7 +212,7 @@ public class ChangeCharActivity extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_changechar);
-		getActionBar().setTitle("ÌØÕ÷²Ù×÷");
+		getActionBar().setTitle("ç‰¹å¾æ“ä½œ");
 		sharedPreferences = this
 				.getSharedPreferences("writedata", MODE_PRIVATE);
 		editor = sharedPreferences.edit();
@@ -299,7 +299,7 @@ public class ChangeCharActivity extends Activity implements OnClickListener {
 				text_hex = null;
 				notify_resualt.setText("");
 				resultLengthNum = 0;
-				resultcount.setText("×Ö½ÚÊı:0");
+				resultcount.setText("å­—èŠ‚æ•°:0");
 			}
 		});
 		save_result.setOnClickListener(new OnClickListener() {
@@ -315,7 +315,7 @@ public class ChangeCharActivity extends Activity implements OnClickListener {
 	private void saveResualt(String result) {
 		// TODO Auto-generated method stub
 		if (result.isEmpty()) {
-			Toast.makeText(this, "Ã»ÓĞ¿É±£´æµÄÄÚÈİ£¡", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "æ²¡æœ‰å¯ä¿å­˜çš„å†…å®¹ï¼", Toast.LENGTH_SHORT).show();
 		} else {
 			try {
 				File file = new File(Environment.getExternalStorageDirectory(),
@@ -334,7 +334,7 @@ public class ChangeCharActivity extends Activity implements OnClickListener {
 				Toast.makeText(
 						ChangeCharActivity.this,
 						"BLElog" + System.currentTimeMillis()
-								+ ".txtÎÄ¼ş³É¹¦±£´æµ½SD¿¨¸ùÄ¿Â¼ÏÂ", Toast.LENGTH_SHORT)
+								+ ".txtæ–‡ä»¶æˆåŠŸä¿å­˜åˆ°SDå¡æ ¹ç›®å½•ä¸‹", Toast.LENGTH_SHORT)
 						.show();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -575,10 +575,10 @@ public class ChangeCharActivity extends Activity implements OnClickListener {
 				// TODO Auto-generated method stub
 				period = Integer.parseInt(write_time.getText().toString());
 				if (writing) {
-					timing_write.setText("¶¨Ê±·¢ËÍ");
+					timing_write.setText("å®šæ—¶å‘é€");
 					writing = false;
 				} else {
-					timing_write.setText("Í£Ö¹·¢ËÍ");
+					timing_write.setText("åœæ­¢å‘é€");
 					write_byte_number = 0;
 					writing = true;
 				}
@@ -607,7 +607,7 @@ public class ChangeCharActivity extends Activity implements OnClickListener {
 										@Override
 										public void run() {
 											// TODO Auto-generated method stub
-											timing_write_count.setText("¹²:"
+											timing_write_count.setText("å…±:"
 													+ write_byte_number);
 										}
 									});
@@ -621,7 +621,7 @@ public class ChangeCharActivity extends Activity implements OnClickListener {
 			}
 		});
 		dialog.setView(dialogview);
-		dialog.setPositiveButton("·¢ËÍ", new DialogInterface.OnClickListener() {
+		dialog.setPositiveButton("å‘é€", new DialogInterface.OnClickListener() {
 			@SuppressLint("NewApi")
 			@Override
 			public void onClick(DialogInterface arg0, int arg1) {
@@ -671,12 +671,12 @@ public class ChangeCharActivity extends Activity implements OnClickListener {
 				bleService.mBluetoothGatt.setCharacteristicNotification(
 						gattChar, true);
 				startNotify = true;
-				notifyButton.setText("Í£Ö¹Í¨Öª");
+				notifyButton.setText("åœæ­¢é€šçŸ¥");
 			} else {
 				bleService.mBluetoothGatt.setCharacteristicNotification(
 						gattChar, false);
 				startNotify = false;
-				notifyButton.setText("¿ªÊ¼Í¨Öª");
+				notifyButton.setText("å¼€å§‹é€šçŸ¥");
 			}
 			break;
 		}
